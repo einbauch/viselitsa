@@ -11,12 +11,6 @@ result_printer = ResultPrinter.new
 word_reader = WordReader.new
 current_path = File.dirname(__FILE__)
 words_file = current_path + "/data/wordlist.txt"
-#slovo = ''
-#puts "Загадывайте слово:"
-#until validator.check_word?(slovo) do
-#slovo = STDIN.gets.encode('UTF-8').chomp
-#slovo = Unicode::upcase(slovo)
-#end
 
 puts "Игра Виселица"
 puts "Правила:"
@@ -29,6 +23,8 @@ gets
 
 slovo = word_reader.read_from_file(words_file)
 slovo = Unicode::upcase(slovo)
+
+abort "Слово содержит недопустимые символы! Допустимы только буквы русского алфавита" unless validator.check_word?(slovo)
 
 game = Game.new(slovo)
 

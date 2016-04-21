@@ -49,15 +49,15 @@ class ResultPrinter
   def get_word_for_print(letters,good_letters)
     result = ""
 
-    for letter in letters do
+    letters.each { |letter|
       if good_letters.include? letter
         result += letter + " "
       else
         result += "__ "
       end
-    end
+    }
 
-    return result
+    result
   end
 
   def print_viselitsa(errors)

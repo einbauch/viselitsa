@@ -14,7 +14,7 @@ class WordReader
       abort "Не найден файл: #{file_name}"
     end
 
-    return lines.sample.chomp
+    lines.sample.chomp
   
   end
 

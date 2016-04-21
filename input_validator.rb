@@ -12,7 +12,7 @@ class InputValidator
    
   end
 
-  def check_letter?(letter) #проверяем хводит ли буква в наш алфавит, возвращаем true или false
+  def check_letter?(letter) #проверяем входит ли буква в наш алфавит, возвращаем true или false
     
     ALPHABET.include?(letter)
 

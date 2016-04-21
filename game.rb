@@ -6,22 +6,12 @@ class Game
     @bad_letters = []
     @good_letters = []
     @status = 0 # 0 - в процессе, -1 - проигрыш, 1 - выигрыш
-    
   end
 
   def get_letters(slovo)
-    
-    if (slovo == nil || slovo == "")
-      abort "Вы не ввели слово для игры"
-    end
-
-    return slovo.split("")
-
+    abort "Вы не ввели слово для игры" if (slovo == nil || slovo == "")
+    slovo.split("")
   end
-
-
-  # 1. ввод из консоли
-  # 2. изменения состояния игры
 
   def evaluate(letter)
     return unless @status == 0
