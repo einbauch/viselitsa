@@ -1,14 +1,13 @@
 class ResultPrinter
 
   def initialize
-    
     @status_image = []
 
     current_path = File.dirname(__FILE__)
 
     (0..9).each do |i|
 
-      file_name = current_path + "/image/#{i}.txt"
+      file_name = current_path + "/../image/#{i}.txt"
 
       begin
         f = File.new(file_name,"r:UTF-8")

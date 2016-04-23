@@ -1,9 +1,9 @@
-require_relative 'win_cp_fix.rb'
+require_relative 'lib/win_cp_fix.rb'
 require 'unicode'
-require_relative 'game.rb'
-require_relative 'result_printer.rb'
-require_relative 'input_validator.rb'
-require_relative 'word_reader.rb'
+require_relative 'lib/game.rb'
+require_relative 'lib/result_printer.rb'
+require_relative 'lib/input_validator.rb'
+require_relative 'lib/word_reader.rb'
 
 
 validator = InputValidator.new

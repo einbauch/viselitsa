@@ -1,5 +1,7 @@
 class Game
 
+  attr_reader :letters, :good_letters, :bad_letters, :errors_count, :status
+
   def initialize(slovo)
     @letters = get_letters(slovo)
     @errors_count = 0
@@ -18,44 +20,19 @@ class Game
     return if @good_letters.include?(letter) || @bad_letters.include?(letter)
 
     if @letters.include?(letter) || @letters.include?('Й') && letter == 'И' || @letters.include?('Ё') && letter == 'Е'
-      @good_letters << letter
-      @good_letters << 'Й' if letter == 'И'
-      @good_letters << 'Ё' if letter == 'Е'
-
-      if @good_letters.sort & @letters.uniq.sort == @letters.uniq.sort
-        @status = 1
-      end
-
+      add_letter_to(@good_letters,letter)
+      @status = 1 if @good_letters.sort & @letters.uniq.sort == @letters.uniq.sort
     else
-      @bad_letters << letter
-      @bad_letters << 'Й' if letter == 'И'
-      @bad_letters << 'Ё' if letter == 'Е'
+      add_letter_to(@bad_letters,letter)
       @errors_count += 1
       @status = -1 if @errors_count >= 7
-    
     end
-
   end
 
-  def letters
-    @letters
-  end
-
-  def good_letters
-    @good_letters
-  end
-
-  def bad_letters
-    @bad_letters
-  end
-
-  def errors_count
-    @errors_count
-  end
-
-# 0 - в процессе, -1 - проигрыш, 1 - выигрыш
-  def status
-    @status
+  def add_letter_to(letters,letter)
+    letters << letter
+    letters << 'Й' if letter == 'И'
+    letters << 'Ё' if letter == 'Е'
   end
 
 end
