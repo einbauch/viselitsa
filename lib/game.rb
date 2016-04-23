@@ -2,17 +2,17 @@ class Game
 
   attr_reader :letters, :good_letters, :bad_letters, :errors_count, :status
 
-  def initialize(slovo)
-    @letters = get_letters(slovo)
+  def initialize(word)
+    @letters = get_letters(word)
     @errors_count = 0
     @bad_letters = []
     @good_letters = []
     @status = 0 # 0 - в процессе, -1 - проигрыш, 1 - выигрыш
   end
 
-  def get_letters(slovo)
-    abort "Вы не ввели слово для игры" if (slovo == nil || slovo == "")
-    slovo.split("")
+  def get_letters(word)
+    abort "Вы не ввели слово для игры" if (word == nil || word == "")
+    word.split("")
   end
 
   def evaluate(letter)

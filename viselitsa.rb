@@ -21,12 +21,12 @@ puts "Для того, чтобы выиграть, необходимо отг�
 puts "Нажмите ENTER, если вы готовы начать"
 gets
 
-slovo = word_reader.read_from_file(words_file)
-slovo = Unicode::upcase(slovo)
+word = word_reader.read_from_file(words_file)
+word = Unicode::upcase(word)
 
-abort "Слово содержит недопустимые символы! Допустимы только буквы русского алфавита" unless validator.check_word?(slovo)
+abort "Слово содержит недопустимые символы! Допустимы только буквы русского алфавита" unless validator.check_word?(word)
 
-game = Game.new(slovo)
+game = Game.new(word)
 
 while game.status == 0 do
 
