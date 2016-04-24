@@ -19,9 +19,9 @@ class Game
     return unless @status == 0
     return if @good_letters.include?(letter) || @bad_letters.include?(letter)
 
-    if @letters.include?(letter) || @letters.include?('Й') && letter == 'И' || @letters.include?('Ё') && letter == 'Е'
+    if is_good?(letter)
       add_letter_to(@good_letters,letter)
-      @status = 1 if @good_letters.sort & @letters.uniq.sort == @letters.uniq.sort
+      @status = 1 if word_solved?
     else
       add_letter_to(@bad_letters,letter)
       @errors_count += 1
@@ -29,10 +29,22 @@ class Game
     end
   end
 
+  private
+
   def add_letter_to(letters,letter)
     letters << letter
     letters << 'Й' if letter == 'И'
     letters << 'Ё' if letter == 'Е'
+  end
+
+  def is_good?(letter)
+    @letters.include?(letter) ||
+    @letters.include?('Й') && letter == 'И' ||
+    @letters.include?('Ё') && letter == 'Е'
+  end
+
+  def word_solved?
+    @good_letters.sort & @letters.uniq.sort == @letters.uniq.sort
   end
 
 end
