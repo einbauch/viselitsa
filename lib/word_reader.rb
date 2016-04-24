@@ -15,7 +15,7 @@ class WordReader
     end
 
     lines.sample.chomp
-  
+
   end
 
 end
