@@ -31,10 +31,10 @@ class Game
 
   private
 
-  def add_letter_to(letters,letter)
-    letters << letter
-    letters << 'Й' if letter == 'И'
-    letters << 'Ё' if letter == 'Е'
+  def add_letter_to(letters_array,letter)
+    letters_array << letter
+    letters_array << 'Й' if letter == 'И'
+    letters_array << 'Ё' if letter == 'Е'
   end
 
   def is_good?(letter)
